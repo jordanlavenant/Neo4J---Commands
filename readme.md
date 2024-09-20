@@ -27,3 +27,7 @@ CTRL + Z
 
 > Username : `neo4j`  
 > Password : `neo4jpw4neo4j`
+
+## Visualize graph
+
+`MATCH (n)-[r]->() RETURN n`
