@@ -31,3 +31,7 @@ CTRL + Z
 ## Visualize graph
 
 `MATCH (n)-[r]->() RETURN n`
+
+## Delete data
+
+`MATCH (n) DETACH DELETE n`
