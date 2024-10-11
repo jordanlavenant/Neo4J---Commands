@@ -57,4 +57,26 @@
     ORDER BY beers_consumed DESC
     LIMIT 3
 
-16.
+16. MATCH (d:Drinker)-[g:Goes]->(b:Bar)
+    WHERE d.age >= 30
+    WITH d, COUNT(g) \* 3 AS weekly_beer_consumption
+    RETURN AVG(d.age) AS average_age, AVG(weekly_beer_consumption) AS average_weekly_beer_consumption
+
+17. MATCH (b:Bar {city: 'Paris'})-[:Sells]->(beer:Beer {name: 'Corona'})
+    WHERE NOT EXISTS {
+    MATCH (b)-[:Sells]->(:Beer {name: 'Antarctica'})
+    }
+    RETURN DISTINCT b.name
+
+18. MATCH (b:Bar)-[:Sells]->(beer:Beer {name: 'Corona'})
+    WHERE NOT EXISTS {
+    MATCH (b)-[:Sells]->(otherBeer:Beer)
+    WHERE otherBeer.name <> 'Corona'
+    }
+    RETURN DISTINCT b.name
+
+19. MATCH (d:Drinker)-[:Goes]->(b:Bar)-[:Sells]->(beer:Beer)
+    WHERE NOT (d)-[:Likes]->(beer)
+    RETURN DISTINCT d.name
+
+20.
