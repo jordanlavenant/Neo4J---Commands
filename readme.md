@@ -3,7 +3,7 @@
 ## Connect to VM :
 
 En ssh :  
-`   `
+`ssh -J o22201676@acces-tp.iut45.univ-orleans.fr -o StrictHostKeyChecking=no o22201676@o22201676-XXX`
 
 ## Start the Neo4J server :
 
